@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About-me</title>
+    <link rel="icon" type="image/png" href="assets/img/ico.png">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/about.css">
+</head>
+<body>
+    <!-- إضافة شريط التنقل -->
+    <nav class="fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="navbar-container mx-auto">
+            <div class="glass backdrop-blur-lg border border-white/10 m-4 rounded-full px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4 space-x-reverse">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl">
+                            M
+                        </div>
+                        <a href="home.html" class="text-2xl font-bold gradient-text">محمود حمادة</a>
+                    </div>
+                    
+                    <div class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="about.html" class="nav-link text-gray-800 hover:text-blue-600 transition">عني</a>
+                        <a href="home.html#services" class="nav-link text-gray-800 hover:text-blue-600 transition">خدماتي</a>
+                        <a href="home.html#projects" class="nav-link text-gray-800 hover:text-blue-600 transition">مشاريعي</a>
+                        <a href="#" class="nav-link text-gray-800 hover:text-blue-600 transition">المدونة</a>
+                        <a href="home.html#contact" class="nav-link text-gray-800 hover:text-blue-600 transition">اتصل بي</a>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <a href="#contact" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105">
+                            تواصل معي
+                        </a>
+                    </div>
+                    
+                    <button class="md:hidden text-gray-800 hover:text-blue-600 transition">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden">
+            <div class="glass backdrop-blur-lg border border-white/10 m-4 rounded-2xl p-4 space-y-4">
+                <a href="#about" class="block text-gray-800 hover:text-blue-600 transition py-2">عني</a>
+                <a href="#services" class="block text-gray-800 hover:text-blue-600 transition py-2">خدماتي</a>
+                <a href="#projects" class="block text-gray-800 hover:text-blue-600 transition py-2">مشاريعي</a>
+                <a href="#blog" class="block text-gray-800 hover:text-blue-600 transition py-2">المدونة</a>
+                <a href="#contact" class="block text-gray-800 hover:text-blue-600 transition py-2">اتصل بي</a>
+                <a href="#contact" class="block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-center">
+                    تواصل معي
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- محتوى البطاقة الشخصية -->
+    <div class="profile-card">
+        <div class="card-header">
+            <!-- إضافة خلفية متحركة في الهيدر -->
+            <div class="header-animation">
+                <div class="animated-circle"></div>
+                <div class="animated-circle"></div>
+                <div class="animated-circle"></div>
+                <div class="animated-circle"></div>
+                <div class="decorative-shape wave"></div>
+            </div>
+            
+            <div class="profile-image-container">
+                <!-- إضافة طبقات الإطار الدائري المتحركة -->
+                <div class="profile-image-border-outer"></div>
+                <div class="profile-image-border-middle"></div>
+                <div class="profile-image-border-inner"></div>
+                
+                <!-- إضافة النقاط المضيئة حول الصورة -->
+                <div class="glow-dots"></div>
+                <div class="glow-dots"></div>
+                <div class="glow-dots"></div>
+                <div class="glow-dots"></div>
+                
+                <!-- إضافة هالة خلف الصورة -->
+                <div class="image-glow"></div>
+                
+                <!-- الصورة الشخصية -->
+                <img src="assets/img/mm.JPG" alt="محمود حمادة" class="profile-image">
+            </div>
+            
+            <h1 class="profile-name">محمود حمادة</h1>
+            <p class="profile-title">مصمم ومطور ويب </p>
+        </div>
+        
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 animate-in" style="animation-delay: 0.1s;" id="about">
+                    <h3 class="section-title">نبذة عني</h3>
+                    <p class="about-text">
+                        مطور ومصمم ويب متخصص في إنشاء مواقع وتطبيقات ويب مبتكرة وعصرية. أمتلك خبرة واسعة في تطوير واجهات المستخدم وتصميمها، وأسعى دائماً لتقديم أفضل الحلول التقنية التي تجمع بين الأداء المميز والشكل الجمالي الجذاب.
+                    </p>
+                    
+                    <h3 class="section-title" id="skills">مهاراتي</h3>
+                    <div class="skill-container">
+                        <span class="skill-badge"><i class="fab fa-html5 me-2"></i>HTML5</span>
+                        <span class="skill-badge"><i class="fab fa-css3-alt me-2"></i>CSS3</span>
+                        <span class="skill-badge"><i class="fab fa-js me-2"></i>JavaScript</span>
+                        <span class="skill-badge"><i class="fab fa-php me-2"></i>PHP</span>
+                        <span class="skill-badge"><i class="fas fa-database me-2"></i>MySQL</span>
+                        <span class="skill-badge"><i class="fab fa-bootstrap me-2"></i>Bootstrap</span>
+                       
+                        <span class="skill-badge"><i class="fab fa-git-alt me-2"></i>Git</span>
+                        <span class="skill-badge"><i class="fas fa-palette me-2"></i>Canva</span>
+                        <span class="skill-badge"><i class="fas fa-mobile-alt me-2"></i>Responsive Design</span>
+                    </div>
+                    
+                    <a href="home.html#projects" class="projects-link">
+                        <i class="fas fa-arrow-right"></i> استعرض أعمالي
+                    </a>
+                </div>
+                
+                <div class="col-lg-6 animate-in" style="animation-delay: 0.3s;">
+                    <div class="contact-section">
+                        <h3 class="section-title">تواصل معي</h3>
+                        <p class="about-text">
+                            هل لديك مشروع تود تنفيذه؟ أو تحتاج مساعدة في تطوير موقعك الحالي؟ أنا هنا للمساعدة في تحويل أفكارك إلى تصاميم رقمية مميزة. يمكنك التواصل معي مباشرة من خلال وسائل التواصل التالية.
+                        </p>
+                        
+                        <div class="text-center">
+                            <button class="btn btn-lg contact-btn text-white" onclick="window.location.href='mailto:mahmoud.m.a.1358@gmail.com'">
+                                <i class="fas fa-envelope me-2"></i> أرسل رسالة
+                            </button>
+                            
+                            <div class="social-icons">
+                                <a href="www.linkedin.com/in/mahmoud-mohamed-647440172" class="social-icon" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/mahmoudhamadaa" class="social-icon" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.facebook.com/mahmoudhamada65" class="social-icon" title="Facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mahmoud_mohamed_abdellah_nasr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="gradient-bg text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">محمود حمادة</h3>
+                        <p class="text-gray-200">مطور ويب متخصص في بناء حلول رقمية مبتكرة</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">روابط سريعة</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="hover:text-gray-300 transition">عني</a></li>
+                            <li><a href="#services" class="hover:text-gray-300 transition">خدماتي</a></li>
+                            <li><a href="#projects" class="hover:text-gray-300 transition">مشاريعي</a></li>
+                            <li><a href="#blog" class="hover:text-gray-300 transition">المدونة</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">تواصل معي</h4>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-envelope ml-2"></i> mahmoud@mail.com</li>
+                            <li><i class="fas fa-phone ml-2"></i> +201069715039 </li>
+                            <li><i class="fas fa-map-marker-alt ml-2"></i>سوهاج, مصر</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">تابعني</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-white/20 pt-8 text-center">
+                    <p>جميع الحقوق محفوظة © 2025 محمود حمادة</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // تحريك العناصر عند ظهورها
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-in');
+            
+            animateElements.forEach(function(element) {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, parseFloat(element.style.animationDelay || 0) * 1000);
+            });
+            
+            // إضافة تأثير تحريك لشارات المهارات
+            const skillBadges = document.querySelectorAll('.skill-badge');
+            skillBadges.forEach((badge, index) => {
+                badge.style.animationDelay = `${0.1 * index}s`;
+                setTimeout(() => {
+                    badge.classList.add('animate-in');
+                }, 500 + (100 * index));
+            });
+        });
+    </script>
+</body>
+</html>

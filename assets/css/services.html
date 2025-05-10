@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض المشاريع</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            direction: rtl;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* استايلات من الملف المشارك */
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .dark-glass {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+        }
+        
+        .custom-shape-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            color: #4f46e5;
+        }
+
+        .custom-shape-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-wave {
+            position: relative;
+            background: linear-gradient(45deg, #2563eb, #4f46e5);
+        }
+
+        .footer-wave::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232563eb' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
+        }
+        
+        .text {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        .text-w {
+            color: #aaaaaa;
+            font-weight: 400;
+        }
+        
+        /* استايلات اضافية للمشاريع */
+        #bg {
+            background: url('/api/placeholder/1920/500') no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            padding: 150px 0 100px;
+        }
+        
+        #color {
+            background: linear-gradient(45deg,#79cbe0,#ffffff); 
+            background-clip: text;   
+            color: transparent;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .projects-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-desc {
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .date {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .view-btn {
+            background: linear-gradient(120deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .footer {
+            color: white;
+            text-align: center;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .hero-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: float-around 8s infinite linear;
+        }
+        
+        @keyframes float-around {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(100px, -100px) rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo gradient-text">شركتنا</div>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link">الرئيسية</a></li>
+            <li><a href="#" class="nav-link">خدماتنا</a></li>
+            <li><a href="#" class="nav-link">المشاريع</a></li>
+            <li><a href="#" class="nav-link">من نحن</a></li>
+            <li><a href="#" class="nav-link">تواصل معنا</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="bg">
+        <div class="hero-particles">
+            <div class="hero-particle" style="width: 15px; height: 15px; top: 10%; left: 10%;"></div>
+            <div class="hero-particle" style="width: 10px; height: 10px; top: 30%; left: 20%;"></div>
+            <div class="hero-particle" style="width: 20px; height: 20px; top: 25%; left: 80%;"></div>
+            <div class="hero-particle" style="width: 12px; height: 12px; top: 65%; left: 75%;"></div>
+            <div class="hero-particle" style="width: 18px; height: 18px; top: 60%; left: 40%;"></div>
+            <div class="hero-particle" style="width: 8px; height: 8px; top: 70%; left: 10%;"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title text" id="color">معرض المشاريع</h1>
+                <p class="hero-subtitle text-w">مجموعة مختارة من أحدث وأفضل المشاريع التي نفذناها</p>
+            </div>
+        </div>
+        <div class="custom-shape-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active">الكل</button>
+                <button class="filter-btn">تطوير الويب</button>
+                <button class="filter-btn">تطبيقات الجوال</button>
+                <button class="filter-btn">تصميم واجهات</button>
+                <button class="filter-btn">التسويق الرقمي</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card card-hover">
+                    <img src="ass" alt="مشروع 1" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">تطبيق الخدمات المنزلية</h3>
+                        <p class="card-desc">منصة متكاملة لطلب خدمات الصيانة المنزلية والتنظيف. تربط بين العملاء ومزودي الخدمات بشكل فعال.</p>
+                        <div class="card-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">نوفمبر 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card card-hover">
+                    <img src="/api/placeholder/400/320" alt="مشروع 2" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">منصة التعليم الإلكتروني</h3>
+                        <p class="card-desc">موقع تفاعلي يقدم دورات تعليمية في مختلف المجالات مع دعم للمحتوى العربي وميزات متقدمة للتعلم.</p>
+                        <div class="card-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">أكتوبر 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card card-hover">
+                    <img src="/api/placeholder/400/320" alt="مشروع 3" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">لوحة تحكم التسويق</h3>
+                        <p class="card-desc">نظام متكامل لإدارة الحملات التسويقية وتحليل البيانات مع تقارير تفصيلية ورسوم بيانية متطورة.</p>
+                        <div class="card-tags">
+                            <span class="tag">Angular</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Data Visualization</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">سبتمبر 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card card-hover">
+                    <img src="/api/placeholder/400/320" alt="مشروع 4" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">تطبيق الدفع الإلكتروني</h3>
+                        <p class="card-desc">حل متكامل للمدفوعات الإلكترونية يدعم العديد من طرق الدفع مع واجهة سهلة الاستخدام وأمان عالي.</p>
+                        <div class="card-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Stripe API</span>
+                            <span class="tag">Security</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">أغسطس 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card card-hover">
+                    <img src="/api/placeholder/400/320" alt="مشروع 5" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">موقع الأخبار التفاعلي</h3>
+                        <p class="card-desc">منصة إخبارية متطورة مع دعم للوسائط المتعددة وميزات تفاعلية متقدمة للمستخدمين.</p>
+                        <div class="card-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">يوليو 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card card-hover">
+                    <img src="/api/placeholder/400/320" alt="مشروع 6" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">نظام إدارة العقارات</h3>
+                        <p class="card-desc">برنامج متكامل لإدارة العقارات والإيجارات مع ميزات متقدمة للبحث والتصفية وإدارة المدفوعات.</p>
+                        <div class="card-tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="date">يونيو 2024</span>
+                            <button class="view-btn">عرض المشروع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer footer-wave">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo text">شركتنا</div>
+                    <p class="footer-desc">نقدم خدمات متميزة في مجال تطوير الويب وتطبيقات الجوال والتسويق الرقمي بأحدث التقنيات والأساليب المبتكرة.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">خدماتنا</a></li>
+                        <li><a href="#">المشاريع</a></li>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="#">تطوير الويب</a></li>
+                        <li><a href="#">تطبيقات الجوال</a></li>
+                        <li><a href="#">تصميم الواجهات</a></li>
+                        <li><a href="#">التسويق الرقمي</a></li>
+                        <li><a href="#">الاستضافة والدومين</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@example.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +966 123 456 789</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 جميع الحقوق محفوظة لشركتنا</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // تفعيل أزرار التصفية
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // هنا يمكن إضافة منطق التصفية الحقيقي
+            });
+        });
+        
+        // تغيير الناف بار عند التمرير
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // إضافة جزيئات متحركة للخلفية
+        function createParticles() {
+            const heroParticles = document.querySelector('.hero-particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('hero-particle');
+                
+                // حجم عشوائي
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // موقع عشوائي
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                // مدة حركة عشوائية
+                const duration = Math.random() * 10 + 5;
+                particle.style.animation = `float-around ${duration}s infinite linear`;
+                
+                // تأخير عشوائي
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                heroParticles.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+    </script>
+</body>
+</html>

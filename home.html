@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng/Mahmoud-Hamada</title>
+    <link rel="icon" type="image/png" href="assets/img/ico.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-32 w-32 border-b-4 border-blue-600"></div>
+            <p class="mt-4 text-xl">جاري التحميل...</p>
+        </div>
+    </div>
+    <nav class="fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto">
+            <div class="glass backdrop-blur-lg border border-white/10 m-4 rounded-full px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4 space-x-reverse">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl">
+                            M
+                        </div>
+                        <a href="home.html" class="text-2xl font-bold gradient-text">محمود حمادة</a>
+                    </div>
+                    
+                    <div class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="./about.html" class="nav-link text-gray-800 hover:text-blue-600 transition">عني</a>
+                        <a href="#services" class="nav-link text-gray-800 hover:text-blue-600 transition">خدماتي</a>
+                        <a href="#projects" class="nav-link text-gray-800 hover:text-blue-600 transition">مشاريعي</a>
+                        <a href="comsoon.html" class="nav-link text-gray-800 hover:text-blue-600 transition">المدونة</a>
+                        <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600 transition">اتصل بي</a>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <a href="https://wa.me/201069715039" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105">
+                            تواصل معي
+                        </a>
+                    </div>
+                    
+                    <button class="md:hidden text-gray-800 hover:text-blue-600 transition">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden">
+            <div class="glass backdrop-blur-lg border border-white/10 m-4 rounded-2xl p-4 space-y-4">
+                <a href="about.html" class="block text-gray-800 hover:text-blue-600 transition py-2">عني</a>
+                <a href="#services" class="block text-gray-800 hover:text-blue-600 transition py-2">خدماتي</a>
+                <a href="#projects" class="block text-gray-800 hover:text-blue-600 transition py-2">مشاريعي</a>
+                <a href="comsoon.html" class="block text-gray-800 hover:text-blue-600 transition py-2">المدونة</a>
+                <a href="#contact" class="block text-gray-800 hover:text-blue-600 transition py-2">اتصل بي</a>
+                <a href="https://wa.me/201069715039" class="block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-center">
+                    تواصل معي
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="gradient-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <div class="hero-particles">
+            <div class="hero-particle" style="width: 20px; height: 20px; top: 20%; left: 10%;"></div>
+            <div class="hero-particle" style="width: 15px; height: 15px; top: 60%; left: 20%;"></div>
+            <div class="hero-particle" style="width: 25px; height: 25px; top: 30%; left: 80%;"></div>
+            <div class="hero-particle" style="width: 18px; height: 18px; top: 70%; left: 60%;"></div>
+        </div>
+
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-64 h-64 rounded-full bg-blue-400 opacity-20 -top-10 -right-10"></div>
+            <div class="absolute w-96 h-96 rounded-full bg-purple-400 opacity-20 -bottom-20 -left-20" ></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-1/2 animate__animated animate__fadeInRight">
+                    <span class="glass inline-block px-4 py-2 rounded-full text-white mb-4">
+                        مرحباً، أنا محمود حماده👋
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        أطور <span class="text-yellow-300">حلولاً إبداعية</span> لمشروعك
+                    </h1>
+                    <p class="text-xl text-white mb-8 leading-relaxed">
+                        مطور ويب متخصص في بناء تجارب رقمية استثنائية تجمع بين الإبداع والوظائف المتقدمة
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                    <a href="https://wa.me/201069715039"> <button class="glass text-white px-8 py-3 rounded-full hover:shadow-lg transition flex items-center">
+                            <span>تواصل معي</span>
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </button></a>
+                    <a href="comsoon.html"> <button class="bg-white text-blue-600 px-8 py-3 rounded-full hover:shadow-lg transition">
+                            عرض أعمالي
+                        </button></a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 animate-float mt-12 md:mt-0">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg filter blur-2xl opacity-30 "></div>
+                        <img src="assets/img/Mahmoud-Hamada.png" alt="Hero Image" class="relative rounded-lg shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2563eb" />
+                    <stop offset="100%" stop-color="#4f46e5" />
+                </linearGradient>
+            </defs>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#gradient)"></path>
+        </svg>
+        
+        
+    </div>
+    <!-- Skills Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">مهاراتي التقنية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4">تطوير الواجهات الأمامية</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Css</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="50"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Bootstrap</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4">تطوير الخلفية</h3>
+                    <div class="space-y-4">
+                        <!-- <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Node.js</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="88"></div>
+                            </div>
+                        </div> -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>PHP</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>MySQL</span>
+                                <span>87%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="87"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4">أدوات وتقنيات</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>GitHub</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Canva</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded">
+                                <div class="progress-bar h-full bg-blue-600 rounded" data-width="90"></div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <!-- <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#4f46e5" />
+            </linearGradient>
+        </defs>
+        <g transform="scale(1, -1) translate(0, -120)">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#gradient)"></path>
+        </g>
+    </svg> -->
+    
+    <section id="services" class="section" >
+    
+            <div class="section-decoration">
+              <div class="large-circle"></div>
+              <div class="large-circle"></div>
+              <div class="dots-pattern">
+                <!-- إنشاء 50 نقطة -->
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="wave"></div>
+            </div>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" id="color">خدماتي</h2>
+            <div id="container">
+            <div class="card">
+                <div class="card-decoration">
+                  <div class="circle-1"></div>
+                  <div class="circle-2"></div>
+                  <div class="dots">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="icon"><span>01</span></div>
+                <div class="content">
+                  <h3>تصميم المواقع</h3>
+                  <p>نقدم تصميمات مواقع فريدة ومبتكرة تجمع بين الجماليات العصرية وسهولة الاستخدام، مع التركيز على تجربة المستخدم المميزة.</p>
+                  <a href="comsoon.html">المزيد... </a>
+                </div>
+              </div>
+              
+              <div class="card">
+                <div class="card-decoration">
+                  <div class="circle-1"></div>
+                  <div class="circle-2"></div>
+                  <div class="dots">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="icon"><span>02</span></div>
+                <div class="content">
+                  <h3>تطوير التطبيقات</h3>
+                  <p>خدمات تطوير تطبيقات متكاملة للهواتف الذكية والأجهزة اللوحية بأحدث التقنيات وأفضل الممارسات البرمجية.</p>
+                  <a href="comsoon.html">المزيد... </a>
+                </div>
+              </div>
+              
+              <div class="card">
+                <div class="card-decoration">
+                  <div class="circle-1"></div>
+                  <div class="circle-2"></div>
+                  <div class="dots">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="icon"><span>03</span></div>
+                <div class="content">
+                  <h3>التسويق الرقمي</h3>
+                  <p>استراتيجيات تسويق رقمي مبتكرة تساعدك على زيادة الانتشار وتحسين تواجدك الرقمي وزيادة المبيعات بشكل فعال.</p>
+                  <a href="comsoon.html">المزيد... </a>
+                </div>
+              </div>
+            </div>
+    </section>
+    <!-- <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#4f46e5" />
+            </linearGradient>
+        </defs>
+        <g transform="scale(1, -1) translate(0, -120)">
+            <path d="M0,40 C150,100 350,0 600,60 C850,120 1050,20 1200,60 L1200,120 L0,120 Z" fill="url(#gradient)"></path>
+        </g>
+    </svg> -->
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">أحدث مشاريعي</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass overflow-hidden rounded-lg card-hover">
+                    <div class="relative group">
+                        <img src="assets/img/pr3.png" alt="Project 1" class="w-full">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold mb-2">صفحة شخصية</h3>
+                                <p class="mb-4">  بورتفوليو شخصي لابراز المهارات التقنيه والعملية ولكن غير متجاوب مع الشاشات</p>
+                                <a href="https://mahmoudhamadaa.github.io/portfolio-m.h/" class="inline-block px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">
+                                    عرض المشروع
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+
+                <div class="glass overflow-hidden rounded-lg card-hover">
+                    <div class="relative group">
+                        <img src="assets/img/pr2.png" alt="Project 2" class="w-full">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold mb-2"> منصة للنادي الاهلي</h3>
+                                <p class="mb-4"> منصة للنادي الاهلي ولكن تصميم مختلف عن التصميم الاصلي ومتجاوب مع الشاشات  </p>
+                                <a href="https://mahmoudhamadaa.github.io/Alahly-club/" class="inline-block px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">
+                                    عرض المشروع
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="glass overflow-hidden rounded-lg card-hover">
+                    <div class="relative group">
+                        <img src="assets/img/pr1.png" alt="Project 1" class="w-full">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold mb-2">صفحة شخصية</h3>
+                                <p class="mb-4">  بورتفوليو شخصي لابراز المهارات التقنيه والعملية ولكن غير متجاوب مع الشاشات</p>
+                                <a href="https://mahmoudhamadaa.github.io/m-h/" class="inline-block px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">
+                                    عرض المشروع
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="projectss">
+            <a href="comsoon.html" class="projectss">
+                <span class="circle">
+                  <i class="fa-solid fa-angle-right"></i>
+                </span>
+                <span class="text" >عرض المشاريع</span>
+              </a>
+    </div>
+    </section>
+    
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50" id="bg">
+        <div class="container mx-auto px-4" >
+            <h2 class="text-4xl font-bold text-center mb-16 " id="color">آراء العملاء</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" >
+                <div class="glass p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/img/person1.jpeg" alt="Client 1" class="w-12 h-12 rounded-full">
+                        <div class="mr-4">
+                            <h4 class="font-bold">أحمد محمد</h4>
+                            <p class="text-w">مدير تنفيذي</p>
+                        </div>
+                    </div>
+                    <p class="text">"عمل محمود على تطوير موقعنا بكفاءة عالية وحرفية. النتائج كانت مذهلة!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="glass p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/img/person.jpg" alt="Client 2" class="w-12 h-12 rounded-full">
+                        <div class="mr-4">
+                            <h4 class="font-bold">سارة خالد</h4>
+                            <p class="text-w">صاحبة متجر إلكتروني</p>
+                        </div>
+                    </div>
+                    <p class="text">"تجربة رائعة في العمل مع محمود. متجري الإلكتروني يعمل بشكل ممتاز!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="glass p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/img/person2.jpeg" alt="Client 3" class="w-12 h-12 rounded-full">
+                        <div class="mr-4">
+                            <h4 class="font-bold">عمر فؤاد</h4>
+                            <p class="text-w">مؤسس شركة ناشئة</p>
+                        </div>
+                    </div>
+                    <p class="text">"محمود مطور محترف ويقدم حلولاً مبتكرة. سعيد جداً بالتعاون معه."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+   <!-- Contact Section with Map -->
+   <section id="contact" class="py-20 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">تواصل معي</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div class="glass p-8 rounded-3xl">
+                <h3 class="text-2xl font-bold mb-6">أرسل رسالة</h3>
+                <form class="space-y-6" id="contact-form" action="" method="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">الاسم</label>
+                            <div class="relative">
+                                <input type="text" class="w-full p-3 pr-10 rounded-lg border focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" required>
+                                <i class="fas fa-user absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                            <div class="relative">
+                                <input type="email" class="w-full p-3 pr-10 rounded-lg border focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" required>
+                                <i class="fas fa-envelope absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">الموضوع</label>
+                        <div class="relative">
+                            <input type="text" class="w-full p-3 pr-10 rounded-lg border focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" required>
+                            <i class="fas fa-bookmark absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">الرسالة</label>
+                        <div class="relative">
+                            <textarea class="w-full p-3 pr-10 rounded-lg border focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition h-32" required></textarea>
+                            <i class="fas fa-pencil-alt absolute top-4 right-3 text-gray-400"></i>
+                        </div>
+                    </div>
+                    <button type="submit" disabled class="gradient-bg text-white px-8 py-3 rounded-lg w-full hover:opacity-90 transition flex items-center justify-center group">
+                        <span>إرسال الرسالة</span>
+                        <i class="fas fa-paper-plane mr-2 group-hover:translate-x-2 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Map and Contact Info -->
+            <div class="space-y-8">
+                <!-- Interactive Map -->
+               <!-- Interactive Map -->
+<div class="glass rounded-3xl overflow-hidden p-2 h-[400px] relative group">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28538.82927029488!2d31.81496244744306!3d26.6051084936733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x144f5d72a37f9abf%3A0xed04b13a43f1336e!2z2KfZhNiz2YTYp9mF2YjZhtmK2Iwg2YXYsdmD2LIg2KPYrtmF2YrZhdiMINmF2K3Yp9mB2LjYqSDYs9mI2YfYp9is!5e0!3m2!1sar!2seg!4v1740362720905!5m2!1sar!2seg" 
+    width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+    </iframe>
+</div>
+
+                <!-- Contact Information Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">العنوان</h4>
+                        <p class="text-gray-600">سوهاج, مصر</p>
+                    </div>
+
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">الهاتف</h4>
+                        <p class="text-gray-600">+201069715039  </p>
+                    </div>
+
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-indigo-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">البريد</h4>
+                        <p class="text-gray-600">mahmoud@mail.com</p>
+                    </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="glass p-6 rounded-2xl">
+                    <h4 class="font-bold mb-4 flex items-center">
+                        <i class="fas fa-clock text-blue-600 ml-2"></i>
+                        ساعات العمل
+                    </h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-600">الأحد - الخميس</p>
+                            <p class="font-bold">9:00 ص - 6:00 م</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">الجمعة - السبت</p>
+                            <p class="font-bold">مغلق</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#4f46e5" />
+            </linearGradient>
+        </defs>
+        <g transform="scale(1, -1) translate(0, -120)">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#gradient)"></path>
+        </g>
+    </svg>
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">محمود حمادة</h3>
+                    <p class="text-gray-200">مطور ويب متخصص في بناء حلول رقمية مبتكرة</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="hover:text-gray-300 transition">عني</a></li>
+                        <li><a href="#services" class="hover:text-gray-300 transition">خدماتي</a></li>
+                        <li><a href="#projects" class="hover:text-gray-300 transition">مشاريعي</a></li>
+                        <li><a href="comsoon.html" class="hover:text-gray-300 transition">المدونة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">تواصل معي</h4>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-envelope ml-2"></i> mahmoud@mail.com</li>
+                        <li><i class="fas fa-phone ml-2"></i> +201069715039 </li>
+                        <li><i class="fas fa-map-marker-alt ml-2"></i>سوهاج, مصر</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">تابعني</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.facebook.com/mahmoudhamada65" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="www.linkedin.com/in/mahmoud-mohamed-647440172" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/mahmoudhamadaa" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p>جميع الحقوق محفوظة © 2025 محمود حمادة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js">
+    </script>
+</body>
+</html>
